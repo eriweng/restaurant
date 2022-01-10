@@ -24,7 +24,7 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
   res.render('show_page', { restaurant: restaurant })
 })
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword // req.params.keyword  這樣的好處就可以看到 search 的邏輯就知道他會有一個參數 keyword。這樣就不用再仔細看下面有什麼參數囉。
   const restaurants = restaurantList.results.filter(restaurant => {
     return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
   })
